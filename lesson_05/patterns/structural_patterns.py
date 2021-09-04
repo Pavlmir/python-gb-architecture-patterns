@@ -1,16 +1,16 @@
 from time import time
-from сreational_patterns import Logger
+from .сreational_patterns import Logger
 
 
 class FrameRoute:
 
-    def __init__(self, routes_dict, url):
-        self.routes_dict = routes_dict
+    def __init__(self, routes: dict, url: str):
+        self.routes = routes
         self.url = url
 
     # Декоратор. При вызове обновляет словарь маршрутов.
     def __call__(self, cls):
-        self.routes_dict[self.url] = cls()
+        self.routes[self.url] = cls()
 
 
 class FrameDebug:

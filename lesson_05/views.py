@@ -6,11 +6,11 @@ from patterns.structural_patterns import FrameRoute, FrameDebug
 
 site = Engine()
 logger = Logger('main')
-routes_dict = {}
+routes = {}
 
 
 # контроллер - главная страница
-@FrameRoute(routes_dict=routes_dict, url='/')
+@FrameRoute(routes=routes, url='/')
 class Index:
     @FrameDebug(name='Index')
     def __call__(self, request):
@@ -18,7 +18,7 @@ class Index:
 
 
 # контроллер "О проекте"
-@FrameRoute(routes_dict=routes_dict, url='/about/')
+@FrameRoute(routes=routes, url='/about/')
 class About:
     @FrameDebug(name='About')
     def __call__(self, request):
@@ -26,7 +26,7 @@ class About:
 
 
 # контроллер - Расписания
-@FrameRoute(routes_dict=routes_dict, url='/study-programs/')
+@FrameRoute(routes=routes, url='/study-programs/')
 class StudyPrograms:
     @FrameDebug(name='StudyPrograms')
     def __call__(self, request):
@@ -40,7 +40,7 @@ class NotFound404:
 
 
 # контроллер - список курсов
-@FrameRoute(routes_dict=routes_dict, url='/course_list/')
+@FrameRoute(routes=routes, url='/course_list/')
 class CoursesList:
     @FrameDebug(name='CoursesList')
     def __call__(self, request):
@@ -53,7 +53,7 @@ class CoursesList:
 
 
 # контроллер - создать курс
-@FrameRoute(routes_dict=routes_dict, url='/course-add/')
+@FrameRoute(routes=routes, url='/course-add/')
 class CreateCourse:
     category_id = -1
 
@@ -87,7 +87,7 @@ class CreateCourse:
 
 
 # контроллер - создать категорию
-@FrameRoute(routes_dict=routes_dict, url='/category-add/')
+@FrameRoute(routes=routes, url='/category-add/')
 class CreateCategory:
 
     @FrameDebug(name='CategoryCreation')
@@ -118,7 +118,7 @@ class CreateCategory:
 
 
 # контроллер - список категорий
-@FrameRoute(routes_dict=routes_dict, url='/category-list/')
+@FrameRoute(routes=routes, url='/category-list/')
 class CategoryList:
 
     @FrameDebug(name='CategoryList')
@@ -128,7 +128,7 @@ class CategoryList:
 
 
 # контроллер - копировать курс
-@FrameRoute(routes_dict=routes_dict, url='/category-copy/')
+@FrameRoute(routes=routes, url='/category-copy/')
 class CopyCourse:
     @FrameDebug(name='CopyCourse')
     def __call__(self, request):
