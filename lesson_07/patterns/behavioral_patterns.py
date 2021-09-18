@@ -1,5 +1,5 @@
 from jsonpickle import dumps, loads
-from lesson_06.framework.templates import render
+from framework.templates import render
 
 """ Поведенческие паттерны """
 
